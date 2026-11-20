@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-left"><h1 class="site-title">Life Dashboard</h1></div>
+    <div class="header-right">
+      <button id="theme-toggle" class="btn btn-icon" aria-label="Toggle dark mode">
+        <span class="theme-icon">moon</span>
+      </button>
+    </div>
+  </header>
+  <main class="dashboard-grid">
+    <section class="panel panel-greeting" aria-label="Greeting">
+      <div class="panel-header"><h2>Greeting</h2></div>
+      <div class="panel-body">
+        <p id="greeting-text" class="greeting-text">Good morning!</p>
+        <p id="date-text" class="date-text"></p>
+        <p id="clock-text" class="clock-text">00:00:00</p>
+        <div class="name-row">
+          <span id="name-display" class="name-display hidden"></span>
+          <div id="name-form" class="name-form">
+            <input id="name-input" type="text" class="input-field" placeholder="Enter your name..." maxlength="40" />
+            <button id="name-save-btn" class="btn btn-primary">Save</button>
+          </div>
+          <button id="name-edit-btn" class="btn btn-secondary hidden">Edit name</button>
+        </div>
+      </div>
+    </section>
+    <section class="panel panel-timer" aria-label="Focus Timer">
+      <div class="panel-header"><h2>Focus Timer</h2></div>
+      <div class="panel-body">
+        <div id="timer-display" class="timer-display">25:00</div>
+        <div id="timer-alert" class="timer-alert hidden">Time is up!</div>
+        <div class="timer-controls">
+          <button id="timer-start-btn" class="btn btn-primary">Start</button>
+          <button id="timer-pause-btn" class="btn btn-secondary" disabled>Pause</button>
+          <button id="timer-reset-btn" class="btn btn-danger">Reset</button>
+        </div>
+        <div class="timer-duration-row">
+          <label for="timer-duration-input" class="label-text">Duration (min):</label>
+          <input id="timer-duration-input" type="number" class="input-field input-narrow" min="1" max="120" value="25" />
+          <button id="timer-set-btn" class="btn btn-secondary">Set</button>
+        </div>
+      </div>
+    </section>
+    <section class="panel panel-todo" aria-label="To-Do List">
+      <div class="panel-header">
+        <h2>To-Do List</h2>
+        <div class="sort-controls">
+          <label for="sort-select" class="label-text">Sort:</label>
+          <select id="sort-select" class="input-field input-select">
+            <option value="added">Date added</option>
+            <option value="name">Name (A to Z)</option>
+            <option value="status">Status (incomplete first)</option>
+          </select>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="add-row">
+          <input id="todo-input" type="text" class="input-field" placeholder="New task..." maxlength="200" />
+          <button id="todo-add-btn" class="btn btn-primary">Add</button>
+        </div>
+        <p id="todo-error" class="error-msg hidden"></p>
+        <ul id="todo-list" class="todo-list"></ul>
+        <p id="todo-empty" class="empty-msg">No tasks yet. Add one above!</p>
+      </div>
+    </section>
+    <section class="panel panel-links" aria-label="Quick Links">
+      <div class="panel-header"><h2>Quick Links</h2></div>
+      <div class="panel-body">
+        <div class="add-row link-add-row">
+          <input id="link-name-input" type="text" class="input-field" placeholder="Link name..." maxlength="40" />
+          <input id="link-url-input" type="text" class="input-field" placeholder="https://..." maxlength="300" />
+          <button id="link-add-btn" class="btn btn-primary">Add</button>
+        </div>
+        <p id="link-error" class="error-msg hidden"></p>
+        <div id="links-container" class="links-container"></div>
+        <p id="links-empty" class="empty-msg hidden">No links saved yet.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><p>Built with love - CodingCamp 2026</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>
